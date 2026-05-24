@@ -1,6 +1,7 @@
 import { GenreService } from "../utils/GenreService.js";
 import { DateUtils } from "../utils/DateUtils.js";
 
+
 /**
  * Template containing the markup and styles for the podcast card.
  */
@@ -127,4 +128,6 @@ class PodcastCard extends HTMLElement {
   }
 }
 
+
 customElements.define("podcast-card", PodcastCard);
+export { PodcastCard };

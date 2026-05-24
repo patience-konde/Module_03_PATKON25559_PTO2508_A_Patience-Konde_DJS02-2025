@@ -1,5 +1,5 @@
-import "../components/PodcastCard.js";
-import { createModal } from "../components/createModal.js";
+import "../component/PodcastCard.js";
+import { createModal } from "../component/createModal.js";
 
 /**
  * Grid Renderer - Responsible for rendering the grid of podcast cards.
