@@ -27,17 +27,28 @@ Codespaces comes with VS Code in the browser. Install the **Live Server** extens
 ## Project Structure
 
 
-views/
-index.js          # App initialization
-createGrid.js     # Grid rendering logic
-data.js           # Podcast dataset
-component/
-createModal.js    # Modal component
-PodcastCard.js    # PodcastCard Web Component
-utils/
-DateUtils.js      # Date formatting helpers
-GenreService.js   # Genre name resolution
-index.html            # Entry point
+project-root/
+│
+├── public/                  # Static files
+│   ├── index.html            # Entry point
+│   └── wireframe/            # Wireframe images or mockups
+│
+├── src/                      # Application source code
+│   ├── components/           # Reusable Web Components
+│   │   ├── createModal.js    # Modal component
+│   │   └── PodcastCard.js    # Podcast card component
+│   │
+│   ├── views/                # Page-level logic
+│   │   └── createGrid.js     # Grid rendering logic
+│   │
+│   ├── utils/                # Helper functions
+│   │   ├── DateUtils.js
+│   │   └── GenreService.js
+│   │
+│   └── index.js              # Application bootstrap
+│
+└── README.md                 # Documentation
+
 
 
 
