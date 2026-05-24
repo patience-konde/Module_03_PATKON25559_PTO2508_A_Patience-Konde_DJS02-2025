@@ -1,64 +1,90 @@
-# DJS02 – Web Component: Podcast Preview
+# 🎧 Podcast App
 
-## Overview
-
-In this project, you will build a reusable and encapsulated **custom HTML element** that displays a podcast preview. The component must follow the **Web Component standard**, using `customElements.define()` and should work independently from the main application logic. This component will enhance modularity, promote reuse, and reduce code duplication across the app.
-
-The component should be designed to **accept podcast data via attributes or properties**, display relevant UI elements (such as title, cover image, and genres), and **communicate with the main application** through custom events.
+A modular podcast web application built with vanilla JavaScript, Web Components, and utility services.  
+Designed for learning clean architecture principles and component‑based development.
 
 ---
 
-## Core Objectives
+## 🚀 Getting Started in Codespaces
 
-### Web Component Functionality
+### 1. Open in Codespaces
 
-- Create a **custom HTML element** using `customElements.define()`.
-- Accept data (cover image, title, genres, number of seasons, and last updated date) **as attributes or properties**.
-- Keep the component **stateless** and reliant on external data provided by the parent.
-- Use **Shadow DOM** for style and logic encapsulation to avoid global conflicts.
-- Trigger a **custom event** when a user interacts with the component (e.g., clicking), so that the parent application can open a modal or take other actions without tightly coupling to the component’s logic.
+- Click the **Code** button in your GitHub repo.
+- Select **Open with Codespaces** → **New codespace**.
 
----
+### 2. Install Live Server
 
-## UI/UX Requirements
+Codespaces comes with VS Code in the browser. Install the **Live Server** extension:
+- In the left sidebar, go to Extensions.
+- Search for `Live Server` and install.
 
-- The component should render a clean and **visually consistent preview** of each podcast.
-- Display:
-  - Podcast **cover image**
-  - Podcast **title**
-  - **Genre names**
-  - **Number of seasons**
-  - **Last updated** in a human-readable format
-- The component must be **responsive**, and match the overall app design on desktop and mobile.
-- On click, the component must notify the parent app to **open a modal** or navigate to details.
+### 3. Run the app
 
----
+- Right‑click `index.html` → **Open with Live Server**.
+- Codespaces will start a dev server and give you a preview URL.
+- The app should now load at something like:
 
-## Code Quality & Maintainability
+## Project Structure
 
-- Write clear, consistent, and modular code.
-- Follow **functional and object-oriented programming** patterns.
-- Document major functions using **JSDoc comments** (parameters, return types, etc.).
-- Use consistent **code formatting** across HTML, CSS, and JavaScript.
 
----
+views/
+index.js          # App initialization
+createGrid.js     # Grid rendering logic
+data.js           # Podcast dataset
+component/
+createModal.js    # Modal component
+PodcastCard.js    # PodcastCard Web Component
+utils/
+DateUtils.js      # Date formatting helpers
+GenreService.js   # Genre name resolution
+index.html            # Entry point
 
-## Technical Constraints
 
-- Do **not** use any third-party frameworks for creating the web component.
-- Use **native JavaScript (ES6+)**, HTML, and CSS.
-- No page reloads or navigation.
-- Ensure compatibility with modern browsers.
 
 ---
 
-## Deliverables
+## 🛠️ Features
 
-- A working custom Web Component file (e.g., `PodcastPreview.js`).
-- An HTML demo page showcasing the component usage.
-- A `README.md` file with:
-  - How to use and register the component
-  - Instructions for passing data
-  - How to listen for interaction events
+- **Podcast Grid**: Dynamically renders podcasts from `data.js`.
+- **PodcastCard Web Component**: Encapsulated UI for each podcast preview.
+- **Modal Component**: Displays podcast details when selected.
+- **Utilities**:
+  - `DateUtils` for formatting dates.
+  - `GenreService` for mapping genre IDs to names.
 
 ---
+
+## 📖 Usage
+
+- The grid displays podcasts from `src/views/data.js`.
+- Clicking a podcast card dispatches a `podcast-selected` event.
+- The modal opens with details of the selected podcast.
+
+---
+
+## ⚡ Troubleshooting
+
+- **404 Not Found**: Check your import paths.  
+  - From `src/views/index.js` → use `../component/...` and `../utils/...`.  
+  - Folder is `component` (singular), not `components`.
+- **Export errors**: Ensure each file exports what you import.  
+  - Example:  
+    ```js
+    export class PodcastCard extends HTMLElement { ... }
+    export { PodcastCard };
+    ```
+- **SyntaxError: Unexpected end of input**: Usually means a missing `}` or backtick in template strings.
+
+---
+
+## 📌 Principles
+
+- **SRP (Single Responsibility Principle)**: Each module handles one concern.
+- **Reusable Components**: Web Components (`PodcastCard`) are self‑contained.
+- **Separation of Concerns**: Views, components, and utilities are split into folders.
+
+---
+
+## 📜 License
+
+This project is for educational purposes.
